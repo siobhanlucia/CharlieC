@@ -14,23 +14,6 @@ namespace CharlieC
 {
     public partial class VisitorRegistration : Form
     {
-        public struct Visitor
-        {
-            public string Name;
-            public string Surname;
-            public string Mobile;
-            public string Email;
-            public string Date;
-            public string Hour;
-            public string Minute;
-            public string MeetingPerson;
-            public string MeetingAim;
-
-        };
-
-        public List<string> visitors = new List<string>();
-
-
         public static VisitorRegistration Self;
 
         MeetingAim aim = new MeetingAim();
@@ -44,117 +27,60 @@ namespace CharlieC
         public void BtnSignIn_Click(object sender, EventArgs e)
         {
             //Information will be added to listr box should all the requirements be met
-            if (TextBoxName.Text == "")
+            if (TextBoxName.Text == "") //First Name
             {
                 TextBoxName.Focus(); //keeping the focus/readkey on this textbox when returning after error message
                 MessageBox.Show("First name is mandatory.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); //pop-out error message
             }
-            //else
-            //{
-            // //   UserDetailsListBox.Items.Add("Visitior First Name: " + TextBoxName.Text);//clarifying information
-            //    visitors.Add(TextBoxName.Text);
-            //}
-            //Surname
-            //string surname = TextBoxSurname.Text;
-            else if (TextBoxSurname.Text == "")
+            else if (TextBoxSurname.Text == "") //Surname
             {
                 TextBoxSurname.Focus();
                 MessageBox.Show("Surname is mandatory.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //else
-            //{
-            //    UserDetailsListBox.Items.Add("Visitior Surname: " + TextBoxSurname.Text);//clarifying information
-            //    visitors.Add(TextBoxSurname.Text);
-            //}
-            //Mobile
-            //string Mobile = TextBoxMobile.Text;
-            else if (TextBoxMobile.Text == "")
+            else if (TextBoxMobile.Text == "") //Mobile
             {
                 TextBoxMobile.Focus();
                 MessageBox.Show("Mobile is mandatory.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //else
-            //{
-            //    UserDetailsListBox.Items.Add("Visitior Mobile: " + TextBoxMobile.Text);//clarifying information
-            //    visitors.Add(TextBoxMobile.Text);
-            //}
-
-            //string email = TextBoxEmail.Text;
-            else if (TextBoxEmail.Text == "")
+            else if (TextBoxEmail.Text == "") //Email
             {
                 TextBoxEmail.Focus();
                 MessageBox.Show("Email is mandatory.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //else
-            //{
-            //    UserDetailsListBox.Items.Add("Visitior Email: " + TextBoxEmail.Text);
-            //    visitors.Add(TextBoxEmail.Text);
-            //}
-
-           else if (DateTimePicker.Text == "01/03/2022")
+            else if (DateTimePicker.Value < DateTime.Today) //Date
             {
-                DateTimePicker.Focus();
                 MessageBox.Show("Meeting Date is mandatory.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //else
-            //{
-            //    UserDetailsListBox.Items.Add("Meeting Date is: " + DateTimePicker.Text);
-            //    visitors.Add(DateTimePicker.Text);
-            //}
-            ////Meeting time
-            //string date = NumericUpDownHour.Text;
-           else if (NumericUpDownHour.Text == "")
+            else if (NumericUpDownHour.Text == "") //Time Hour
             {
                 NumericUpDownHour.Focus();
                 MessageBox.Show("Meeting Hour is mandatory.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           else if (NumericUpDownMinute.Text == "")
+            else if (NumericUpDownMinute.Text == "") //Time Minute
             {
                 NumericUpDownMinute.Focus();
                 MessageBox.Show("Meeting Minutes is mandatory.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //else
-            //{
-            //    UserDetailsListBox.Items.Add("Meeting time: " + NumericUpDownHour.Text + ":" + NumericUpDownMinute.Text);
-            //    V.Hour =NumericUpDownHour.Text);
-            //    V.Minute = NumericUpDownMinute.Text;
-            //}
-            //Meeting With
-            //string meetingwith = ComboBoxMeetingWith.Text;
-            else if (ComboBoxMeetingWith.Text == "")
+            else if (ComboBoxMeetingWith.Text == "") //Meeting With
             {
                 MessageBox.Show("Meeting With is mandatory.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //UserDetailsListBox.Items.Add("Meeting With: " + ComboBoxMeetingWith.Text);
-                //V.MeetingPerson = ComboBoxMeetingWith.Text;
             }
-            //else
-            //{
-            //    MessageBox.Show("Meeting With is mandatory.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-            //Enter Meeting Aim into ist
-            //UserDetailsListBox.Items.Add("Meeting Aim is: " + BtnMeetingAim.Text);
-            //V.MeetingAim = BtnMeetingAim.Text;
-
-            //if (V.Name != null && V.Surname != null &&
-            //    V.Mobile != null && V.Email != null &&
-            //    V.Date != null && V.MeetingPerson != null &&
-            //    V.MeetingAim != null)
-            //{
-            //    visitors.Add(V);
-            //    foreach (Visitor person in visitors)
-            //    {
-            //        UserDetailsListBox.Items.Add("Visitior First Name: " + TextBoxName.Text + " /n Visitior Surname: " + TextBoxSurname.Text);
-
-            //    }
-            //}
+            else if (BtnMeetingAim.Text == "Meeting Aim") //Meeting Aim
+            {
+                MessageBox.Show("Meeting Aim is mandatory.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
-              UserDetailsListBox.Items.Add("Vistor Full Name: "+TextBoxName.Text +" "+ TextBoxSurname.Text + TextBoxMobile.Text + TextBoxEmail.Text + DateTimePicker.Text + NumericUpDownHour.Text + NumericUpDownMinute.Text + ComboBoxMeetingWith.Text + BtnMeetingAim.Text);
+                DateTimePicker.MinDate = DateTime.Now;
+                UserDetailsListBox.Items.Add("Vistor Full Name: " + TextBoxName.Text + " " + TextBoxSurname.Text);
+                UserDetailsListBox.Items.Add("Visitor Mobile: " + TextBoxMobile.Text);
+                UserDetailsListBox.Items.Add("Visitor Email: " + TextBoxEmail.Text);
+                UserDetailsListBox.Items.Add("Meeting Date: " + DateTimePicker.Text);
+                UserDetailsListBox.Items.Add("Meeting Time: " + NumericUpDownHour.Text + ":" + NumericUpDownMinute.Text);
+                UserDetailsListBox.Items.Add("Meeting With: " + ComboBoxMeetingWith.Text);
+                UserDetailsListBox.Items.Add("Meeting Aim: " + BtnMeetingAim.Text);
                 Clear();  //clear all fields after pressing Sign In
             }
-
-            
-            //V = new Visitor();
         }
         void Clear()
         {
@@ -166,7 +92,7 @@ namespace CharlieC
             DateTimePicker.Text = "";
             NumericUpDownHour.Text = "";
             NumericUpDownMinute.Text = "";
-            ComboBoxMeetingWith.Items.Clear();
+            ComboBoxMeetingWith.Text = "";
             BtnMeetingAim.Text = "Meeting Aim";
             TextBoxName.Focus();
         }
@@ -203,31 +129,17 @@ namespace CharlieC
                 }
             }
         }
-
-
-        private void DateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-   
-        }
-
-        
-
         //selctor visitor so receptionist can delete from listbox
         private void UserDetailsListBox_KeyDown(object sender, KeyEventArgs e)
         {
 
             if (e.KeyCode == Keys.Delete) //press delete key
             {
-                if (UserDetailsListBox.SelectedIndex != -1)
+                while (UserDetailsListBox.SelectedItems.Count > 0)
                 {
-                    UserDetailsListBox.Items.RemoveAt(UserDetailsListBox.SelectedIndex); //deletes selected information
+                    UserDetailsListBox.Items.Remove(UserDetailsListBox.SelectedItems[0]);
                 }
             }
-        }
-
-        private void UserDetailsListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
         }
     }
 }

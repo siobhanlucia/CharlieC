@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Visitor.cs" />
     <Compile Include="MeetingAim.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,7 +60,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Visitors.cs" />
     <EmbeddedResource Include="MeetingAim.resx">
       <DependentUpon>MeetingAim.cs</DependentUpon>
     </EmbeddedResource>

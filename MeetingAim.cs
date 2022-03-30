@@ -43,10 +43,10 @@ namespace CharlieC
             this.Close(); //close message box & Meeting aim
         }
 
-        private void BtnCancel_Click_1(object sender, EventArgs e)
+        private void BtnCancel_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Meeting Aim is mandatory.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             this.Close(); //close Meeting Aim Form
-            MessageBox.Show("Email is mandatory.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

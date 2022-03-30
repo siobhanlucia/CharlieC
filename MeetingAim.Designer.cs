@@ -57,6 +57,7 @@
             this.BtnCancel.TabIndex = 26;
             this.BtnCancel.Text = "Cancel";
             this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // LblSpecify
             // 

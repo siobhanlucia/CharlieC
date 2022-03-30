@@ -68,9 +68,9 @@
             this.UserDetailsListBox.Location = new System.Drawing.Point(7, 22);
             this.UserDetailsListBox.Margin = new System.Windows.Forms.Padding(4);
             this.UserDetailsListBox.Name = "UserDetailsListBox";
+            this.UserDetailsListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.UserDetailsListBox.Size = new System.Drawing.Size(290, 452);
             this.UserDetailsListBox.TabIndex = 11;
-            this.UserDetailsListBox.SelectedIndexChanged += new System.EventHandler(this.UserDetailsListBox_SelectedIndexChanged);
             this.UserDetailsListBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserDetailsListBox_KeyDown);
             // 
             // BtnSignIn
@@ -140,6 +140,7 @@
             this.ComboBoxMeetingWith.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboBoxMeetingWith.FormattingEnabled = true;
             this.ComboBoxMeetingWith.Items.AddRange(new object[] {
+            "",
             "Beer Inder Singh",
             "Jatinder Singh",
             "Rashmi Munjal"});
@@ -187,7 +188,7 @@
             this.DateTimePicker.Location = new System.Drawing.Point(29, 59);
             this.DateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.DateTimePicker.MaxDate = new System.DateTime(2022, 12, 31, 0, 0, 0, 0);
-            this.DateTimePicker.MinDate = new System.DateTime(2022, 3, 1, 0, 0, 0, 0);
+            this.DateTimePicker.MinDate = new System.DateTime(2022, 3, 10, 0, 0, 0, 0);
             this.DateTimePicker.Name = "DateTimePicker";
             this.DateTimePicker.Size = new System.Drawing.Size(296, 23);
             this.DateTimePicker.TabIndex = 4;
